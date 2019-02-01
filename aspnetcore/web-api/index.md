@@ -230,11 +230,13 @@ services.AddMvc()
 }
 ```
 
-需具备 2.2 版本或更高版本的兼容性标志，才可使用问题详细信息功能。 当 `SuppressMapClientErrors` 属性设置为 `true` 时，会禁用默认行为。 在 `Startup.ConfigureServices` 中添加下列代码：
+需具备 2.2 版本或更高版本的兼容性标志，才可使用问题详细信息功能。 当 `SuppressMapClientErrors` 属性设置为 `true` 时，会禁用默认行为。 在 `Startup.ConfigureServices` 中添加下列代码：  
+## 此处建议把代码  删除两行  10~11 。  因为这段代码是演示如何禁用这个功能的
 
 [!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=8)]
 
 使用 `ClientErrorMapping` 属性配置 `ProblemDetails` 响应的内容。 例如，以下代码会更新 404 响应的 `type` 属性：
+## 此处建议把 highlight=8行处的true改为 false。   因为当其为true时， 下面两句是没作用的，因为该功能已经禁用了嘛！
 
 [!code-csharp[](define-controller/samples/WebApiSample.Api.22/Startup.cs?name=snippet_ConfigureApiBehaviorOptions&highlight=10-11)]
 
